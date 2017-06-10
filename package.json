@@ -1,0 +1,27 @@
+{
+  "name": "angular-template-generator",
+  "version": "0.0.1",
+  "description": "generate angular files",
+  "main": "index.js",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "readline": "^1.3.0",
+    "to-pascal-case": "^1.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/uittorio/angular-template-generator.git"
+  },
+  "keywords": [
+    "angular",
+    "create",
+    "files",
+    "components"
+  ],
+  "author": "Vittorio Guerriero",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/uittorio/angular-template-generator/issues"
+  },
+  "homepage": "https://github.com/uittorio/angular-template-generator#readme"
+}
