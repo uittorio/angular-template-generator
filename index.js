@@ -1,14 +1,17 @@
 #! /usr/bin/env node
 
 const Component = require('./lib/component/component');
-const Dir = require('./lib/utils/dir');
-const folder = process.argv[2];
 
-Dir.create(folder);
-createComponentFiles(folder, folder);
+const type = process.argv[2];
+const fileName = process.argv[3];
+const folder = process.cwd();
 
-function createComponentFiles(dir, nameComponent) {
-  const component = new Component(dir, nameComponent);
+if (type === "cmp") {
+  createComponentFiles(folder, fileName);
+}
+
+function createComponentFiles(folder, name) {
+  const component = new Component(folder, name);
 
   component.createFile();
   component.createSpec();
