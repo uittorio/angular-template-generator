@@ -1,3 +1,7 @@
+import { Component } from '@angular/core';
+import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { NameOfComponent } from 'NameOfImportComponent';
+
 describe('NameOfComponent', () => {
   let testHostFixture: ComponentFixture<TestHostComponent>;
 
