@@ -13,10 +13,16 @@ if (type === "cmp") {
 function createComponentFiles(folder, name) {
   const component = new Component(folder, name);
 
-  component.createFile();
-  component.createSpec();
-  component.createInterface();
-  component.createStub();
-  component.createScss();
-  component.createHtml();
+  let promises = [
+    component.createFile(),
+    component.createSpec(),
+    component.createInterface(),
+    component.createStub(),
+    component.createScss(),
+    component.createHtml()
+  ];
+
+  Promise.all(promises).then(() => {
+    process.exit(0);
+  });
 }
