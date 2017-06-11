@@ -13,11 +13,14 @@ npm i angular-template-generator
 
 angular-template-generator nameOfComponent
 ```
+this will generate
 
+```
 nameOfComponent folder
-    nameOfComponent.component.ts
-    nameOfComponent.component.spec.ts
-    nameOfComponent.component.interface.ts
-    nameOfComponent.component.stub.ts
-    nameOfComponent.component.html
-    nameOfComponent.component.scss
+--nameOfComponent.component.ts
+--nameOfComponent.component.spec.ts
+--nameOfComponent.component.interface.ts
+--nameOfComponent.component.stub.ts
+--nameOfComponent.component.html
+--nameOfComponent.component.scss
+```
