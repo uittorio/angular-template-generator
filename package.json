@@ -4,7 +4,7 @@
   "description": "generate angular files",
   "main": "index.js",
   "bin": {
-    "snippet": "./index.js"
+    "angular-template-generator": "./index.js"
   },
   "dependencies": {
     "fs": "0.0.1-security",
@@ -26,5 +26,10 @@
   "bugs": {
     "url": "https://github.com/uittorio/angular-template-generator/issues"
   },
-  "homepage": "https://github.com/uittorio/angular-template-generator#readme"
+  "homepage": "https://github.com/uittorio/angular-template-generator#readme",
+  "devDependencies": {},
+  "scripts": {
+    "start": "node ./index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
