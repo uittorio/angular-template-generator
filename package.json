@@ -1,6 +1,6 @@
 {
   "name": "angular-template-generator",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "generate angular files",
   "main": "index.js",
   "bin": {
