@@ -1,7 +1,7 @@
 # angular-template-generator
 generate files for angular application
 
-# Merge json files
+# generate angular files
 generate folder with files component, html, scss, stub, spec and interface for angular application
 
 ## Usage
@@ -9,14 +9,17 @@ generate folder with files component, html, scss, stub, spec and interface for a
 Install with npm
 
 ```
-npm i angular-template-generator
-
-angular-template-generator nameOfComponent
-```
-this will generate
+npm i angular-template-generator -g
 
 ```
-nameOfComponent folder
+
+component generator
+
+```
+angular-template-generator cmp nameOfComponent
+```
+this will generate:
+```
 --nameOfComponent.component.ts
 --nameOfComponent.component.spec.ts
 --nameOfComponent.component.interface.ts
