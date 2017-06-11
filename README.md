@@ -27,3 +27,14 @@ this will generate:
 --nameOfComponent.component.html
 --nameOfComponent.component.scss
 ```
+
+service generator
+
+```
+angular-template-generator service nameOfService
+```
+this will generate:
+```
+--nameOfService.service.ts
+--nameOfService.service.spec.ts
+```
