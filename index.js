@@ -1,6 +1,6 @@
-const fs = require('fs');
-const readline = require('readline');
-const toPascalCase = require('to-pascal-case');
+const fs = require("fs");
+const readline = require("readline");
+const toPascalCase = require("to-pascal-case");
 const folder = process.argv[2];
 
 const rl = readline.createInterface({
@@ -44,9 +44,9 @@ function closeNode() {
 }
 
 function createComponent(dir, nameComponent) {
-  var nameFile = nameComponent + '.component';
+  var nameFile = nameComponent + ".component";
 
-  fs.readFile('./templates/component/component.ts', 'utf8', function (err,data) {
+  fs.readFile("./templates/component/component.ts", "utf8", function (err,data) {
     if (err) {
       return console.log(err);
     }
@@ -55,7 +55,7 @@ function createComponent(dir, nameComponent) {
     data = replaceSelector(data, nameComponent);
     data = replaceTemplateUrl(data, nameComponent);
 
-    createFile(dir, nameFile, 'ts', data, closeNode)
+    createFile(dir, nameFile, "ts", data, closeNode)
   });
 
 }
@@ -65,7 +65,7 @@ function replaceComponentName(data, nameComponent) {
 }
 
 function replaceSelector(data, nameComponent) {
-  return data.replace(/NameOfTemplateUrl/g, './' + nameComponent + '.component.html');
+  return data.replace(/NameOfTemplateUrl/g, "./" + nameComponent + ".component.html");
 }
 
 function replaceTemplateUrl(data, nameComponent) {
@@ -73,28 +73,28 @@ function replaceTemplateUrl(data, nameComponent) {
 }
 
 function createComponentSpec(dir, nameComponent) {
-  createFile(dir, nameComponent + '.component', 'ts');
+  createFile(dir, nameComponent + ".component", "ts");
 }
 
 function createComponentStub(dir, nameComponent) {
-  createFile(dir, nameComponent + '.component.stub', 'ts');
+  createFile(dir, nameComponent + ".component.stub", "ts");
 }
 
 function createComponentInterface(dir, nameComponent) {
-  createFile(dir, nameComponent + '.component.interface', 'ts');
+  createFile(dir, nameComponent + ".component.interface", "ts");
 }
 
 function createComponentHtml(dir, nameComponent) {
-  createFile(dir, nameComponent + '.component', '.html');
+  createFile(dir, nameComponent + ".component", ".html");
 }
 
 function createComponentScss(dir, nameComponent) {
-  createFile(dir, nameComponent + '.component', '.scss');
+  createFile(dir, nameComponent + ".component", ".scss");
 }
 
 
 function createFile(dir, nameFile, extension, content, callBack) {
-  fs.writeFile(dir + '/' + nameFile + '.' + extension, content, function(err) {
+  fs.writeFile(dir + "/" + nameFile + "." + extension, content, function(err) {
     if(err) {
       return console.log(err);
     }
