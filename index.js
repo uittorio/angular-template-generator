@@ -38,6 +38,7 @@ function createDirectiveFiles(folder, name) {
 
   let promises = [
     directive.createFile(),
+    directive.createStub(),
     directive.createInterface()
   ];
 
