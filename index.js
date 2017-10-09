@@ -1,22 +1,42 @@
 #! /usr/bin/env node
+const ProcessService = require('./lib/process/process');
+const processService = new ProcessService(process);
 
-const Component = require('./lib/component/component');
-const Service = require('./lib/service/service');
-const Directive = require('./lib/directive/directive');
+(function() {
+  const Dir = require('./lib/utils/dir');
 
-const type = process.argv[2];
-const fileName = process.argv[3];
-const folder = process.cwd();
+  if (!processService.hasFirstArgument()) {
+    consoleErrorAndExit('No type provided, Please provide one');
+  }
 
-if (type === "cmp") {
-  createComponentFiles(folder, fileName);
-} else if(type === 'directive') {
-  createDirectiveFiles(folder, fileName);
-} else if(type === 'service') {
-  createServiceFiles(folder, fileName);
-}
+  if (!processService.hasSecondArgument()) {
+    consoleErrorAndExit('No filename provided, Please provide one');
+  }
+
+  const type = processService.getFirstArgument();
+  const fileName = processService.getSecondArgument();
+  const folder = processService.getFolder() + '/' + fileName;
+
+  Dir.create(folder);
+
+  switch(type) {
+    case 'cmp':
+      createComponentFiles(folder, fileName);
+      break;
+    case 'directive':
+      createDirectiveFiles(folder, fileName);
+      break;
+    case 'service':
+      createServiceFiles(folder, fileName);
+      break;
+    default:
+      consoleErrorAndExit('type is invalid. Please read the doc');
+  }
+})();
 
 function createComponentFiles(folder, name) {
+  const Component = require('./lib/component/component');
+
   const component = new Component(folder, name);
 
   let promises = [
@@ -29,11 +49,13 @@ function createComponentFiles(folder, name) {
   ];
 
   Promise.all(promises).then(() => {
-    process.exit(0);
+    consoleLogAndExit('Component created');
   });
 }
 
 function createDirectiveFiles(folder, name) {
+  const Directive = require('./lib/directive/directive');
+
   const directive = new Directive(folder, name);
 
   let promises = [
@@ -44,11 +66,13 @@ function createDirectiveFiles(folder, name) {
   ];
 
   Promise.all(promises).then(() => {
-    process.exit(0);
+    consoleLogAndExit('Directive created');
   });
 }
 
 function createServiceFiles(folder, name) {
+  const Service = require('./lib/service/service');
+
   const service = new Service(folder, name);
 
   let promises = [
@@ -59,6 +83,16 @@ function createServiceFiles(folder, name) {
   ];
 
   Promise.all(promises).then(() => {
-    process.exit(0);
+    consoleLogAndExit('Service created');
   });
+}
+
+function consoleErrorAndExit(message) {
+  console.error(message);
+  processService.exit();
+}
+
+function consoleLogAndExit(message) {
+  console.log(message);
+  processService.exit();
 }
