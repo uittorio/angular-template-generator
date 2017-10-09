@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { INameOfComponent } from 'NameOfImportInterface';
+import { INameOfComponent } from './NameOfImportInterface';
 
 @Component({
   selector: 'NameOfSelector',

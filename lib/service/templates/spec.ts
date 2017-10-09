@@ -1,4 +1,4 @@
-import { NameOfService } from 'NameOfImportService';
+import { NameOfService } from './NameOfImportService';
 
 describe('NameOfService', () => {
 

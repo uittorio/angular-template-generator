@@ -38,6 +38,7 @@ function createDirectiveFiles(folder, name) {
 
   let promises = [
     directive.createFile(),
+    directive.createSpec(),
     directive.createStub(),
     directive.createInterface()
   ];
@@ -52,7 +53,9 @@ function createServiceFiles(folder, name) {
 
   let promises = [
     service.createFile(),
-    service.createSpec()
+    service.createSpec(),
+    service.createStub(),
+    service.createInterface()
   ];
 
   Promise.all(promises).then(() => {
