@@ -28,6 +28,19 @@ this will generate:
 --nameOfComponent.component.scss
 ```
 
+directive generator
+
+```
+angular-template-generator directive nameOfDirective
+```
+this will generate:
+```
+--nameOfDirective.directive.ts
+--nameOfDirective.directive.spec.ts
+--nameOfDirective.directive.interface.ts
+--nameOfDirective.directive.stub.ts
+```
+
 service generator
 
 ```
@@ -35,6 +48,8 @@ angular-template-generator service nameOfService
 ```
 this will generate:
 ```
---nameOfService.service.ts
---nameOfService.service.spec.ts
+--nameOfService.ts
+--nameOfService.spec.ts
+--nameOfService.stub.ts
+--nameOfService.interface.ts
 ```
