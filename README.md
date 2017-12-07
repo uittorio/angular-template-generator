@@ -1,22 +1,22 @@
 # angular-template-generator
-generate files for angular application
+generate files for an angular application
 
 # generate angular files
-generate folder with files component, html, scss, stub, spec and interface for angular application
+generate folder with files component, html, scss, stub, spec and interface for an angular application
 
 ## Usage
 
-Install with npm
+**Install with npm**
 
 ```
 npm i angular-template-generator -g
 
 ```
 
-component generator
+**component generator**
 
 ```
-angular-template-generator cmp nameOfComponent
+angular-template-generator type=component filename=nameOfComponent prefix?=nameOfPrefix
 ```
 this will generate:
 ```
@@ -27,11 +27,12 @@ this will generate:
 --nameOfComponent.component.html
 --nameOfComponent.component.scss
 ```
+with a prefix defined it will add it to the selector and to the css class name (nameOfPrefixNameOfComponent)
 
-directive generator
+**directive generator**
 
 ```
-angular-template-generator directive nameOfDirective
+angular-template-generator type=directive filename=nameOfDirective prefix?=nameOfPrefix
 ```
 this will generate:
 ```
@@ -40,11 +41,12 @@ this will generate:
 --nameOfDirective.directive.interface.ts
 --nameOfDirective.directive.stub.ts
 ```
+with a prefix defined it will add it to the selector (nameOfPrefixNameOfDirective)
 
-service generator
+**service generator**
 
 ```
-angular-template-generator service nameOfService
+angular-template-generator type=service filename=nameOfService
 ```
 this will generate:
 ```

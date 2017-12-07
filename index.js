@@ -5,26 +5,27 @@ const processService = new ProcessService(process);
 (function() {
   const Dir = require('./lib/utils/dir');
 
-  if (!processService.hasFirstArgument()) {
+  if (!processService.hasArgument('type')) {
     consoleErrorAndExit('No type provided, Please provide one');
   }
 
-  if (!processService.hasSecondArgument()) {
+  if (!processService.hasArgument('filename')) {
     consoleErrorAndExit('No filename provided, Please provide one');
   }
 
-  const type = processService.getFirstArgument();
-  const fileName = processService.getSecondArgument();
+  const type = processService.getArgument('type');
+  const fileName = processService.getArgument('filename');
+  const prefix = processService.getArgument('prefix');
   const folder = processService.getFolder() + '/' + fileName;
 
   Dir.create(folder);
 
   switch(type) {
-    case 'cmp':
-      createComponentFiles(folder, fileName);
+    case 'component':
+      createComponentFiles(folder, fileName, prefix);
       break;
     case 'directive':
-      createDirectiveFiles(folder, fileName);
+      createDirectiveFiles(folder, fileName, prefix);
       break;
     case 'service':
       createServiceFiles(folder, fileName);
@@ -34,10 +35,10 @@ const processService = new ProcessService(process);
   }
 })();
 
-function createComponentFiles(folder, name) {
+function createComponentFiles(folder, name, prefix) {
   const Component = require('./lib/component/component');
 
-  const component = new Component(folder, name);
+  const component = new Component(folder, name, prefix);
 
   let promises = [
     component.createFile(),
@@ -53,10 +54,10 @@ function createComponentFiles(folder, name) {
   });
 }
 
-function createDirectiveFiles(folder, name) {
+function createDirectiveFiles(folder, name, prefix) {
   const Directive = require('./lib/directive/directive');
 
-  const directive = new Directive(folder, name);
+  const directive = new Directive(folder, name, prefix);
 
   let promises = [
     directive.createFile(),
