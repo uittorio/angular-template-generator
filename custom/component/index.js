@@ -1,9 +1,10 @@
-toPascalCase = require("to-pascal-case");
+const toPascalCase = require("to-pascal-case");
+const toKebabCase = require("just-kebab-case");
 
 class Component {
   constructor(param) {
     this.name = param.name;
-    this.prefix = param.prefix ? param.prefix + '-' : '';
+    this.prefix = param.prefix;
   }
 
   fileName() {
@@ -23,7 +24,7 @@ class Component {
   }
 
   $Selector() {
-    return this.prefix + this.name;
+    return toKebabCase(this.prefix + toPascalCase(this.name));
   }
 
   $TemplateUrl() {

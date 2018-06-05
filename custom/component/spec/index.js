@@ -1,4 +1,5 @@
-toPascalCase = require("to-pascal-case");
+const toPascalCase = require("to-pascal-case");
+const toKebabCase = require("just-kebab-case");
 
 class Spec {
   constructor(param) {
@@ -19,7 +20,7 @@ class Spec {
   }
 
   $Selector() {
-    return this.prefix + this.name;
+    return toKebabCase(this.prefix + toPascalCase(this.name));
   }
 }
 
