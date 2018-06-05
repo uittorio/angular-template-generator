@@ -18,7 +18,7 @@ npm i angular-template-generator -g
 ```
 angular-template-generator type=component filename=nameOfComponent prefix?=nameOfPrefix
 ```
-this will generate:
+this will generate a folder with:
 ```
 --nameOfComponent.component.ts
 --nameOfComponent.component.spec.ts
@@ -34,7 +34,7 @@ with a prefix defined it will add it to the selector and to the css class name (
 ```
 angular-template-generator type=directive filename=nameOfDirective prefix?=nameOfPrefix
 ```
-this will generate:
+this will generate a folder with
 ```
 --nameOfDirective.directive.ts
 --nameOfDirective.directive.spec.ts
@@ -48,7 +48,7 @@ with a prefix defined it will add it to the selector (nameOfPrefixNameOfDirectiv
 ```
 angular-template-generator type=service filename=nameOfService
 ```
-this will generate:
+this will generate a folder with
 ```
 --nameOfService.ts
 --nameOfService.spec.ts
