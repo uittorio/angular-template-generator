@@ -13,7 +13,7 @@ describe('$Component', () => {
   class TestHostComponent {
   }
 
-  beforeEach(async(async () => {
+  beforeEach(async(async() => {
     await TestBed.configureTestingModule({
       declarations: [
         TestHostComponent,
