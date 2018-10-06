@@ -1,5 +1,6 @@
 const toPascalCase = require("to-pascal-case");
 const toKebabCase = require("just-kebab-case");
+const toCamelCase = require("camelcase");
 
 class Spec {
   constructor(param) {
@@ -13,6 +14,10 @@ class Spec {
 
   $Component() {
     return toPascalCase(this.name) + 'Component';
+  }
+
+  $ComponentDebugElement() {
+    return toCamelCase(this.name) + 'Component';
   }
 
   $ComponentFile() {

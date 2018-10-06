@@ -5,7 +5,7 @@ import { $Component } from '$ComponentFile';
 
 describe('$Component', () => {
   let fixture: ComponentFixture<TestHostComponent>,
-    NameOfDebugElement: DebugElement;
+		$ComponentDebugElement: DebugElement;
 
   @Component({
     template: `<$Selector></$Selector>`
@@ -22,6 +22,6 @@ describe('$Component', () => {
     }).compileComponents();
 
     fixture = TestBed.createComponent(TestHostComponent);
-    NameOfDebugElement = fixture.debugElement.query(By.directive($Component));
+		$ComponentDebugElement = fixture.debugElement.query(By.directive($Component));
   }));
 });
