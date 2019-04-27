@@ -1,4 +1,7 @@
 # angular-template-generator
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/uittorio/angular-template-generator.svg)](https://greenkeeper.io/)
+
 generate files for an angular application
 
 # generate angular files
